@@ -15,7 +15,7 @@
 	Ayni isimde birden cok filmi silmeye calisirken, bulunan her filmi kullaniciya tek tek sorar.
 	Film arama ayni kategoride (isim, basrol oyuncusu, yayinlanma yili, yonetmen, senarist) birden cok filmi bulup kullaniciya sunar.
 
-## Known Bugs:
+## Bilinen Hatalar / Eksiklikler:
 	Birden cok film ayni anda guncellenemez
 	Herhangi bir ismin icinde bosluk olmamali
 
