@@ -17,7 +17,6 @@ typedef struct
 
 void FilmSil(char*);
 int IsEmpty(Film);
-void RemoveFromArray(Film* array, int index);
 void AraIsim(void);
 void AraYil(void);
 void AraYonetmen(void);
