@@ -1,4 +1,4 @@
-# Film Arsivi Berke Ucurum CENG 101 Proje
+# Film Arsivi Berke Ucurum, YigitCan Sahin CENG 101 Proje
 
 ## Aciklama:
 	arsiv.txt diye bir dosya olusturur. Arsiv bu dosyaya kaydedilir.
@@ -112,68 +112,73 @@
 	Y
 	Film basarili bir sekilde silinmistir.
 
-	###### Ayni isimli birden cok film silmek:
-		Silmek istediginiz Film adini giriniz
-		kola
-		Silinecek: 
-		--------------------------------
-		Film adi:	kola
-		Yayinlanma Yil:	1679
-		Yonetmen:	beyin
-		Senarist:	kol
-		Basrol oy.:	ayna
+### Ayni isimli birden cok film silmek:
+	Silmek istediginiz Film adini giriniz
+	kola
+	Silinecek: 
+	--------------------------------
+	Film adi:	kola
+	Yayinlanma Yil:	1679
+	Yonetmen:	beyin
+	Senarist:	kol
+	Basrol oy.:	ayna
 
-		Silmek istediginize emin misiniz? [Y/N]
-		N
-		Silinecek: 
-		--------------------------------
-		Film adi:	kola
-		Yayinlanma Yil:	1979
-		Yonetmen:	bubirbeyin
-		Senarist:	kol
-		Basrol oy.:	ayna
+	Silmek istediginize emin misiniz? [Y/N]
+	N
+	Silinecek: 
+	--------------------------------
+	Film adi:	kola
+	Yayinlanma Yil:	1979
+	Yonetmen:	bubirbeyin
+	Senarist:	kol
+	Basrol oy.:	ayna
 
-		Silmek istediginize emin misiniz? [Y/N]
-		Y
-		Film basarili bir sekilde silinmistir.
+	Silmek istediginize emin misiniz? [Y/N]
+	Y
+	Film basarili bir sekilde silinmistir.
 
 
 ## Film Aramak:
+```
 	Isme gore aramak icin 1 e bas: 
 	Yila gore aramak icin 2 e bas: 
 	Yonetmene gore aramak icin 3 e bas: 
 	Senaristine gore aramak icin 4 e bas: 
 	Basrol oyuncusuna gore aramak icin 5 e bas: 
-	###### Isme Gore:
-		Aramak istediginiz Film adini giriniz: 
-		titanic
-		--------------------------------
-		Film adi:	titanic
-		Yayinlanma Yil:	1964
-		Yonetmen:	berke
-		Senarist:	emre
-		Basrol oy.:	gemi
+```
+###### Isme Gore:
+```
+	Aramak istediginiz Film adini giriniz: 
+	titanic
+	--------------------------------
+	Film adi:	titanic
+	Yayinlanma Yil:	1964
+	Yonetmen:	berke
+	Senarist:	emre
+	Basrol oy.:	gemi
+```
+###### Yila Gore:
+```
+	Aramak istediginiz filmin yilini giriniz: 
+	1964
+	--------------------------------
+	Film adi:	su_sisesi
+	Yayinlanma Yil:	1964
+	Yonetmen:	sise
+	Senarist:	musluk
+	Basrol oy.:	damla
 
-	###### Yila Gore:
-		Aramak istediginiz filmin yilini giriniz: 
-		1964
-		--------------------------------
-		Film adi:	su_sisesi
-		Yayinlanma Yil:	1964
-		Yonetmen:	sise
-		Senarist:	musluk
-		Basrol oy.:	damla
+	--------------------------------
+	Film adi:	titanic
+	Yayinlanma Yil:	1964
+	Yonetmen:	berke
+	Senarist:	emre
+	Basrol oy.:	gemi
 
-		--------------------------------
-		Film adi:	titanic
-		Yayinlanma Yil:	1964
-		Yonetmen:	berke
-		Senarist:	emre
-		Basrol oy.:	gemi
-
-		--------------------------------
-	
-	###### Yonetmene Gore:
+	--------------------------------
+```	
+###### Yonetmene Gore:
+```
 		Aramak istediginiz filmin yonetmenini giriniz: 
 		berke
 		--------------------------------
@@ -184,37 +189,41 @@
 		Basrol oy.:	gemi
 
 		--------------------------------
+```
+###### Senaristine Gore:
+```
+	Aramak istediginiz filmin senaristini giriniz: 
+	musluk
+	--------------------------------
+	Film adi:	su_sisesi
+	Yayinlanma Yil:	1964
+	Yonetmen:	sise
+	Senarist:	musluk
+	Basrol oy.:	damla
 
-	###### Senaristine Gore:
-		Aramak istediginiz filmin senaristini giriniz: 
-		musluk
-		--------------------------------
-		Film adi:	su_sisesi
-		Yayinlanma Yil:	1964
-		Yonetmen:	sise
-		Senarist:	musluk
-		Basrol oy.:	damla
+	--------------------------------
+```
+###### Basrol Oyuncusuna Gore:
+```
+	--------------------------------
+	Film adi:	kola
+	Yayinlanma Yil:	1679
+	Yonetmen:	beyin
+	Senarist:	kol
+	Basrol oy.:	ayna
 
-		--------------------------------
-
-	###### Basrol Oyuncusuna Gore:
-		--------------------------------
-		Film adi:	kola
-		Yayinlanma Yil:	1679
-		Yonetmen:	beyin
-		Senarist:	kol
-		Basrol oy.:	ayna
-
-		--------------------------------
-
-	###### Herhangi bir kriterde bulunamazsa:
-		Aramak istediginiz Film adini giriniz: 
-		ttyuii
-		--------------------------------
-		Film: ttyuii bulunamadi.
-		--------------------------------
-
+	--------------------------------
+```
+###### Herhangi bir kriterde bulunamazsa:
+```
+	Aramak istediginiz Film adini giriniz: 
+	ttyuii
+	--------------------------------
+	Film: ttyuii bulunamadi.
+	--------------------------------
+```
 ## Cikis Yapmak:
+```
 	Film eklemek icin 1 e bas 
 	Filmleri listelemek icin 2 ye bas 
 	Filmleri guncellemek icin 3 e bas 
@@ -223,3 +232,4 @@
 	cikis yapmak icin 0 a bas 
 	0
 	cikis yaptiniz 
+```

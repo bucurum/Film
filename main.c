@@ -4,12 +4,12 @@
 
 #define MAX_NAME_SZ 300
 
-char FileName[10] = "arsiv.txt"; 
+char DosyaAdi[10] = "arsiv.txt"; 
 
 typedef struct 
 {
 	char film_adi[30];
-	int film_yayinlanma_yili;
+	int  film_yayinlanma_yili;
 	char film_yonetmeni[30];
 	char film_senaristi[30];
 	char film_basrol_oyuncusu[30];
@@ -21,7 +21,7 @@ void AraIsim(void);
 void AraYil(void);
 void AraYonetmen(void);
 void AraSenarist(void);
-int CompareFilms(Film, Film);
+int FilmKarsilastir(Film, Film);
 void AraBasrol(void);
 int *FilmBulYil(int yil);
 int *FilmBulIsim(char*);
@@ -42,20 +42,20 @@ void Guncelle(Film);
 
 Film arsiv[MAX_NAME_SZ];
 
-void swap(Film *xp, Film *yp) 
-{ 
-    Film temp = *xp; 
-    *xp = *yp; 
-    *yp = temp; 
-}
 
-void bubbleSort(Film arr[], int n) 
+void bubbleSort(Film arr[], int n)
 { 
 	int i, j; 
 	for (i = 0; i < n-1; i++)
 		for (j = 0; j < n-i-1; j++)
 			if (arr[j].film_yayinlanma_yili > arr[j+1].film_yayinlanma_yili) 
         		swap(&arr[j], &arr[j+1]); 
+}
+void swap(Film *xp, Film *yp) 
+{ 
+    Film temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
 }
 int main()
 {
@@ -70,8 +70,7 @@ int main()
 		printf("cikis yapmak icin 0 a bas \n");
 
 		scanf("%d", &input);
-	    while ((getchar()) != '\n'); // Flushing the input buffer
-
+	    while ((getchar()) != '\n'); 
 		switch (input)
 		{
 		case 0:
@@ -116,7 +115,6 @@ void Menu_Guncelle()
 	int k = 0;
 	for (int i = 0; i < MAX_NAME_SZ; i++)
 	{
-		//printf("%d\n", film_index[i]);
 		if(film_index[i] == -1)
 		{
 			// BULUNAMADI
@@ -157,7 +155,7 @@ void Guncelle(Film f)
 	}
 	int guncellendi = 0;
 
-	sptr = fopen(FileName, "w+");
+	sptr = fopen(DosyaAdi, "w+");
 	for(int i = 0; i < j; i++)
 	{
 		printf("Guncellenecek: \n");
@@ -181,7 +179,7 @@ void Guncelle(Film f)
 	{
 		for(int c = 0; c < MAX_NAME_SZ; c++)
 		{
-			if(CompareFilms(arsiv[c], silinecek[i]) == 1 && IsEmpty(arsiv[c]) == 0)
+			if(FilmKarsilastir(arsiv[c], silinecek[i]) == 1 && IsEmpty(arsiv[c]) == 0)
 			{
 				Film f;
 				silinmeyecek[c] = f;
@@ -200,7 +198,7 @@ void Guncelle(Film f)
 	fclose(sptr);
 	if(!guncellendi) return;
 	FILE *eptr;
-	eptr = (fopen(FileName, "a"));
+	eptr = (fopen(DosyaAdi, "a"));
 	printf("Guncellemek istediginiz filmin yayinlanma yilini giriniz: \n");
 	scanf("%d", &f.film_yayinlanma_yili);
 	printf("Guncellemek istediginiz filmin yonetmenini giriiniz: \n");
@@ -257,7 +255,7 @@ void AraIsim()
 	int bulundu = 0;
 	for (int i = 0; i < MAX_NAME_SZ; i++)
 	{
-		//printf("%d\n", film_index[i]);
+		
 		if(film_index[i] == -1)
 		{
 			// BULUNAMADI
@@ -404,7 +402,7 @@ void KayitEkle() // BITTI
 	Film f;
 
 	FILE *eptr;
-	eptr = (fopen(FileName, "a"));
+	eptr = (fopen(DosyaAdi, "a"));
 	printf("Eklemek istediginiz Film adini giriniz: \n");
 	scanf("%s", f.film_adi);
 	printf("Eklemek istediginiz filmin yayinlanma yilini giriniz: \n");
@@ -425,19 +423,18 @@ void FilmEkle(Film f, FILE *eptr)
 	fprintf(eptr, "%d\t%s\t%s\t%s\t%s\n", f.film_yayinlanma_yili, f.film_adi, f.film_yonetmeni, f.film_senaristi, f.film_basrol_oyuncusu);
 }
 
-void Listele() // Bitti
+void Listele() 
 {
 	ArsivYenile();
-	int n = ArsivUzunlugu();
-    bubbleSort(arsiv, n);
+    bubbleSort(arsiv, ArsivUzunlugu());
 	for(int i = 0; i < ArsivUzunlugu(); i++)
 	{
 		if(!IsEmpty(arsiv[i]))
 			PrintFilm(arsiv[i]);
 	}
-}
+}                  
 
-int *FilmBulIsim(char *isim) // Bitti
+int *FilmBulIsim(char *isim)
 {
 	ArsivYenile();
 
@@ -544,9 +541,10 @@ int *FilmBulSenarist(char *senarist) // Bitti
 
 void ArsivYenile() // Bitti
 {
+	memset(arsiv, 0, sizeof(arsiv)); // arsiv arrayini sifirla
 	FILE *eptr;
 	int i = 0;
-	eptr = (fopen(FileName, "r+"));
+	eptr = (fopen(DosyaAdi, "r+"));
 
 	while(1) 
 	{
@@ -560,6 +558,7 @@ void ArsivYenile() // Bitti
 
 int ArsivUzunlugu()
 {
+	ArsivYenile();
 	Film f;
 	int num = 0;
 	for(int i = 0; i < (sizeof(arsiv) / sizeof(f)); i++)
@@ -581,7 +580,7 @@ void PrintFilm(Film film_to_print)
 	printf("Basrol oy.:\t%s\n\n", film_to_print.film_basrol_oyuncusu);
 }
 
-int CompareFilms(Film f1, Film f2)
+int FilmKarsilastir(Film f1, Film f2)
 {
 	int toReturn = 0;
 
@@ -629,7 +628,7 @@ void FilmSil(char* film_adi)
 		printf("--------------------------------\n");
 		return;
 	}
-	sptr = fopen(FileName, "w+");
+	sptr = fopen(DosyaAdi, "w+");
 	for(int i = 0; i < j; i++)
 	{
 		printf("Silinecek: \n");
@@ -653,7 +652,7 @@ void FilmSil(char* film_adi)
 	{
 		for(int c = 0; c < MAX_NAME_SZ; c++)
 		{
-			if(CompareFilms(arsiv[c], silinecek[i]) == 1 && IsEmpty(arsiv[c]) == 0)
+			if(FilmKarsilastir(arsiv[c], silinecek[i]) == 1 && IsEmpty(arsiv[c]) == 0)
 			{
 				Film f;
 				silinmeyecek[c] = f;
@@ -675,7 +674,6 @@ void FilmSil(char* film_adi)
 
 int IsEmpty(Film f)
 {
-	int toReturn = 0;
 	if(f.film_yayinlanma_yili == 0
 		&&
 		!strcmp(f.film_adi, "")
@@ -687,7 +685,10 @@ int IsEmpty(Film f)
 		!strcmp(f.film_yonetmeni, "")
 		)
 	{
-		toReturn = 1;
+		return 1;
 	}
-	return toReturn;
+	else
+	{
+		return 0;
+	}
 }
