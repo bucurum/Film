@@ -1,4 +1,4 @@
-# Film Arsivi Berke Ucurum, YigitCan Sahin CENG 101 Proje
+# Film Arsivi Berke Ucurum CENG 101 Proje
 
 ## Aciklama:
 	arsiv.txt diye bir dosya olusturur. Arsiv bu dosyaya kaydedilir.
